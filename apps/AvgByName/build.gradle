@@ -1,0 +1,26 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+}
+group = 'edu.classes.mr'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
+
+dependencies {
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.4.10'
+    compile 'org.apache.hadoop:hadoop-client:3.1.0'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'edu.classes.mr.AvgByNameDriverKt'
+    }
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}

@@ -1,0 +1,7 @@
+datasets
+spark
+output
+apps/*/build
+apps/*/.gradle
+apps/*/.idea
+apps/*/local.properties
